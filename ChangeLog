@@ -1,0 +1,10 @@
+2010-08-25  Dave Cross <dave@dave.org.uk>
+
+  * Build.PL, MANIFEST, MANIFEST.SKIP, META.yml, t/01-load.t, t/02-basic.t,
+  t/pod.t, t/pod_coverage.t: Added various files.
+
+  * lib/Net/Songkick.pm: Fix documentation.
+
+  * lib/Net/Songkick.pm: Added simple documentation.
+
+  * lib/Net/Songkick.pm: Initial version.
