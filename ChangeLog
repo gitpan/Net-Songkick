@@ -1,4 +1,46 @@
+2010-08-26  Dave Cross <dave@dave.org.uk>
+
+  * lib/Net/Songkick.pm: Tweaked documentation. Bumped to version 0.02.
+
+  * Build.PL: Added new dependencies.
+
+  * lib/Net/Songkick/Artist.pm, lib/Net/Songkick/Country.pm,
+  lib/Net/Songkick/Event.pm, lib/Net/Songkick/Location.pm,
+  lib/Net/Songkick/MetroArea.pm, lib/Net/Songkick/Performance.pm,
+  lib/Net/Songkick/Venue.pm: Added pod.
+
+  * MANIFEST: Added new classes to MANIFEST.
+
+  * lib/Net/Songkick/Artist.pm, lib/Net/Songkick/Country.pm,
+  lib/Net/Songkick/Event.pm, lib/Net/Songkick/MetroArea.pm,
+  lib/Net/Songkick/Performance.pm, lib/Net/Songkick/Venue.pm: Added new
+  classes. Tied them all together.
+
+  * lib/Net/Songkick/Event.pm, lib/Net/Songkick/Location.pm,
+  lib/Net/Songkick/Performance.pm: New classes.
+
+  * .gitignore: Added a .gitignore file.
+
+  * Build.PL, MANIFEST: Adding Net::Songkick::Event and bin/gigs to the
+  distribution.
+
+  * META.yml: Removed META.yml from repo as it is generated.
+
+  * bin/gigs: Changed to use the new Perl objects that now get returned from
+  get_upcoming_events by default.
+
+  * lib/Net/Songkick.pm: First attempt at returning Perl objects rather than
+  xml/json.
+
+  * lib/Net/Songkick/Event.pm: Initial version of Net::Songkick::Event class.
+
+  * : Make Build.PL not executable.
+
+  * bin/gigs: New files.
+
 2010-08-25  Dave Cross <dave@dave.org.uk>
+
+  * MANIFEST: Added ChangeLog
 
   * Build.PL, MANIFEST, MANIFEST.SKIP, META.yml, t/01-load.t, t/02-basic.t,
   t/pod.t, t/pod_coverage.t: Added various files.

@@ -8,12 +8,15 @@ my $build = Module::Build->new(
 		perl           => '5.6.0',
 		LWP::UserAgent => 0,
 		Moose	       => 0,
+		XML::LibXML    => 0,
+		DateTime       => 0,
 	},
 	build_recommends => {
 		Test::Pod           => 0,
 		Test::Pod::Coverage => 0,
 	},
         create_makefile_pl => 'traditional',
+        script_files => [ 'bin/gigs' ],
 );
 
 $build->create_build_script;

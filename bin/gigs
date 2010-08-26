@@ -1,0 +1,19 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+
+use Net::Songkick;
+
+my $user = shift || 'davorg';
+my $sk = Net::Songkick->new({
+  api_key => $ENV{SONGKICK_API_KEY}
+});
+
+my $evnts = $sk->get_upcoming_events({
+  user => $user,
+});
+
+foreach (@$evnts) {
+  print $_->displayName, "\n";
+}

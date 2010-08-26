@@ -6,11 +6,15 @@ WriteMakefile
           'NAME' => 'Net::Songkick',
           'VERSION_FROM' => 'lib/Net/Songkick.pm',
           'PREREQ_PM' => {
+                           'DateTime' => 0,
                            'LWP::UserAgent' => 0,
-                           'Moose' => 0
+                           'Moose' => 0,
+                           'XML::LibXML' => 0
                          },
           'INSTALLDIRS' => 'site',
-          'EXE_FILES' => [],
+          'EXE_FILES' => [
+                           'bin/gigs'
+                         ],
           'PL_FILES' => {}
         )
 ;
