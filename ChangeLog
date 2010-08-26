@@ -1,5 +1,28 @@
 2010-08-26  Dave Cross <dave@dave.org.uk>
 
+  * MANIFEST: Added sample program to MANIFEST.
+
+  * lib/Net/Songkick.pm: Bump to version 0.03.
+
+  * bin/setlist: Added sample set list program.
+
+  * lib/Net/Songkick.pm: Reformating.
+
+  * bin/gigs: Tweaking output.
+
+  * MANIFEST, lib/Net/Songkick/SetList.pm, lib/Net/Songkick/SetListItem.pm: Add
+  set list support.
+
+  * .gitignore: Ignore backups.
+
+  * bin/gigs: Better demonstration of the object model.
+
+  * lib/Net/Songkick.pm: Fix typo in setlist URL.
+
+  * Build.PL: Need DateTime::Format::Strptime, not DateTime.
+
+  * lib/Net/Songkick.pm: Use wantarray on more of the return values.
+
   * lib/Net/Songkick.pm: Tweaked documentation. Bumped to version 0.02.
 
   * Build.PL: Added new dependencies.

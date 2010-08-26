@@ -44,7 +44,7 @@ package Net::Songkick;
 use strict;
 use warnings;
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 use Moose;
 
@@ -52,12 +52,13 @@ use LWP::UserAgent;
 use XML::LibXML;
 
 use Net::Songkick::Event;
+use Net::Songkick::SetList;
 
 my $API_URL = 'http://api.songkick.com/api/3.0';
 my $EVT_URL = "$API_URL/events";
 my $UPC_URL = "$API_URL/users/USERNAME/events";
 my $GIG_URL = "$API_URL/users/USERNAME/gigography";
-my $SET_URL = "$API_URL/events/EVENT_ID/setlists/";
+my $SET_URL = "$API_URL/events/EVENT_ID/setlists";
 
 my @EVT_PRM = qw(type artists artist_name artist_id venue_id setlist_item_name
 		 min_date max_date location);
@@ -75,16 +76,16 @@ my %SET_PRM = map { $_ => 1 } @SET_PRM;
 my $DEF_FMT = 'perl';
 
 has api_key => (
-		is => 'ro',
-		isa => 'Str',
-		required => 1,
-	       );
+  is => 'ro',
+  isa => 'Str',
+  required => 1,
+);
 
 has ua => (
-	   is => 'ro',
-	   isa => 'LWP::UserAgent',
-	   lazy_build => 1,
-	  );
+  is => 'ro',
+  isa => 'LWP::UserAgent',
+  lazy_build => 1,
+);
 
 sub _build_ua {
   my $self = shift;
@@ -200,7 +201,7 @@ sub get_upcoming_events {
     foreach ($xp->findnodes('//event')) {
       push @$evnts, Net::Songkick::Event->new_from_xml($_);
     }
-    return $evnts;
+    return wantarray ? @$evnts : $evnts;
   } else {
     return $resp;
   }
@@ -250,7 +251,7 @@ sub get_past_events {
     foreach ($xp->findnodes('//event')) {
       push @$evnts, Net::Songkick::Event->new_from_xml($_);
     }
-    return $evnts;
+    return wantarray ? @$evnts : $evnts;
   } else {
     return $resp;
   }
@@ -291,7 +292,19 @@ sub get_setlist {
     }
   }
 
-  return $self->_request($url);
+  my $resp = $self->_request($url);
+
+  if ($ret_format eq 'perl') {
+    my $setlists;
+
+    my $xp = XML::LibXML->new->parse_string($resp);
+    foreach ($xp->findnodes('//setlist')) {
+      push @$setlists, Net::Songkick::SetList->new_from_xml($_);
+    }
+    return wantarray ? @$setlists : $setlists;
+  } else {
+    return $self->_request($url);
+  }
 }
 
 =head1 AUTHOR
@@ -307,7 +320,7 @@ perl(1), L<http://www.songkick.com/>, L<http://developer.songkick.com/>
 Copyright (C) 2010, Magnum Solutions Ltd.  All Rights Reserved.
 
 This script is free software; you can redistribute it and/or modify it
-under the same terms as Perl itself. 
+under the same terms as Perl itself.
 
 =cut
 

@@ -6,7 +6,7 @@ WriteMakefile
           'NAME' => 'Net::Songkick',
           'VERSION_FROM' => 'lib/Net/Songkick.pm',
           'PREREQ_PM' => {
-                           'DateTime' => 0,
+                           'DateTime::Format::Strptime' => 0,
                            'LWP::UserAgent' => 0,
                            'Moose' => 0,
                            'XML::LibXML' => 0

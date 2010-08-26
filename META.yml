@@ -13,7 +13,7 @@ name: Net-Songkick
 provides:
   Net::Songkick:
     file: lib/Net/Songkick.pm
-    version: 0.02
+    version: 0.03
   Net::Songkick::Artist:
     file: lib/Net/Songkick/Artist.pm
   Net::Songkick::Country:
@@ -26,14 +26,18 @@ provides:
     file: lib/Net/Songkick/MetroArea.pm
   Net::Songkick::Performance:
     file: lib/Net/Songkick/Performance.pm
+  Net::Songkick::SetList:
+    file: lib/Net/Songkick/SetList.pm
+  Net::Songkick::SetListItem:
+    file: lib/Net/Songkick/SetListItem.pm
   Net::Songkick::Venue:
     file: lib/Net/Songkick/Venue.pm
 requires:
-  DateTime: 0
+  DateTime::Format::Strptime: 0
   LWP::UserAgent: 0
   Moose: 0
   XML::LibXML: 0
   perl: v5.6.0
 resources:
   license: http://dev.perl.org/licenses/
-version: 0.02
+version: 0.03
