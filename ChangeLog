@@ -1,3 +1,9 @@
+2010-10-05  Dave Cross <dave@dave.org.uk>
+
+  * lib/Net/Songkick.pm: Bumped to version 0.4 for release.
+
+  * lib/Net/Songkick/Event.pm: Removed deprecated ticketUri attribute.
+
 2010-08-26  Dave Cross <dave@dave.org.uk>
 
   * MANIFEST: Added sample program to MANIFEST.
